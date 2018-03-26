@@ -1,0 +1,5 @@
+name:
+  self: nom 
+  exists: le nom existe déja
+\s: " "
+remote: commande

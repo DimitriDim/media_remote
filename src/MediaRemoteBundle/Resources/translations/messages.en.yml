@@ -1,0 +1,5 @@
+name:
+  self: name 
+  exists: the name already exists
+\s: " "
+remote: remote

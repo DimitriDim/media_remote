@@ -1,0 +1,66 @@
+{% extends "@MediaRemote/header.html.twig" %}
+{% block title %}Media {{ parent() }} {% endblock %}
+{% block main %}
+
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col" id="media">
+
+{% include "@MediaRemote/form/start-card.html.twig" %}
+
+    <div class="ui bigger mdl-cell mdl-cell--12-col">
+        <div class="ui bigger light mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+        
+        {% include "@MediaRemote/form/errors/heading.html.twig" %}
+
+        {% include "@MediaRemote/Media/form/widget/textfield.html.twig" %}
+        {% include "@MediaRemote/Media/form/label/textfield.html.twig" %}
+
+
+	    <span class="mdl-textfield__error">Only alphabet between 3 and 16 characters</span>
+        </div>
+        <br>
+        <br>
+        <div class="ui bigger light mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+        
+
+        {% include "@MediaRemote/Media/form/widget/textdescr.html.twig" %}
+        {% include "@MediaRemote/Media/form/label/textdescr.html.twig" %}
+
+        </div>
+    </div>
+  <script>
+    var remote = window.document.getElementById("media");
+    var input = remote.getElementsByTagName("input");
+    input[0].onkeyup = input[1].onkeyup = function (e){ 
+      if (e.keyCode === 13){
+        this.parentNode.parentNode.parentNode.submit(); //on remonte pour trouver le formulaire
+      }
+    }
+
+  </script>
+
+</div>
+{% include "@MediaRemote/form/end.html.twig" %}
+
+
+<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--8-col">
+    <ul class="mdl-list">
+
+    {# boucle sur les medias trouvé #}
+    {% for value in files %} 
+
+      <li class="mdl-list__item bg-grey-200">
+        <span class="mdl-list__item-primary-content">
+          <i class="material-icons  mdl-list__item-avatar ui bg-indigo-500">chevron_right</i>
+         
+          {# value est celle de mediaRemote, 
+          on veux le nom du media, 
+          on rentre dans la table media via la clef mediaid, on recherche ensuite le nom #}
+          {{value.getFiles()}}
+      
+        </span>
+      </li>
+    {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

@@ -1,0 +1,13 @@
+{
+  "name": "Generate_assets",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "author": "Dimitri",
+  "license": "ISC",
+  "dependencies": {
+    "material-design-lite": "latest",
+    "material-design-icons": "latest",
+    "ui-design": "latest"
+  }
+}
